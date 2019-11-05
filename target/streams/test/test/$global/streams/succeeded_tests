@@ -1,0 +1,7 @@
+#Successful Tests
+#Tue Nov 05 17:30:36 AEDT 2019
+lintilla.NameAnalysisTests=1572935436440
+lintilla.SyntaxAnalysisTests=1572935436789
+lintilla.SemanticTests=1572935436455
+lintilla.ExecTests=1572935436378
+lintilla.TypeAnalysisTests=1572935435946

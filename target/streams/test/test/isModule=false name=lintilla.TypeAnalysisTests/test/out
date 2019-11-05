@@ -1,0 +1,18 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTypeAnalysisTests in extras/src/test/scala/lintilla:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- the left parameter to '&&' must be of type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- the right parameter to '&&' must be of type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- the left parameter to '||' must be of type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- the right parameter to '||' must be of type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- the parameter to a '~' must be of type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- an '&&' expression has type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- an '||' expression has type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- a '~' expression has type 'bool'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- an array may always be dereferenced[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- only an array can be dereferenced[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check the type of a dereferenced array[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check typing of append operation '+='[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check typing of assignment ':='[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check typing of from, to an step expressions in a 'for' loops[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that the body of a 'for' loop must have type 'unit'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that 'loop' may only occur in the body of a 'for'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that 'break' may only occur in the body of a 'for'[0m[0m

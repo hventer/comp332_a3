@@ -1,0 +1,159 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mSyntaxAnalysisTests in extras/src/test/scala/lintilla:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an identifier of one letter produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an identifier as an identifier produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an identifier containing digits and underscores produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an integer as an identifier gives an error[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a non-identifier as an identifier gives an error (digit)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a non-identifier as an identifier gives an error (underscore)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a keyword as an identifier gives an error[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a keyword prefix as an identifier produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an integer of one digit as an integer produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an integer as an integer produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a non-integer as an integer gives an error[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an equal expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a less than expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an addition expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a subtraction expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a multiplication expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a division expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an integer expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a true expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a false expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an identifier expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a parenthesized expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an application expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing another application expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < is not associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = is not associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = and < are not associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- + is left associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - is left associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - and + are left associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- * is left associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- / is left associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- / and * are left associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than application (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than application (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- + has lower precedence than application (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - has lower precedence than application (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- * has lower precedence than application (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- / has lower precedence than application (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than application (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than application (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- + has lower precedence than application (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - has lower precedence than application (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- * has lower precedence than application (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- / has lower precedence than application (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- test negation of function application[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- + has lower precedence than * (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - has lower precedence than * (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- + has lower precedence than * (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - has lower precedence than * (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- + has lower precedence than / (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - has lower precedence than / (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- + has lower precedence than / (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- - has lower precedence than / (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than * (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than * (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than * (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than * (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than / (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than / (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than / (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than / (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than + (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than + (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than + (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than + (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than - (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than - (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has lower precedence than - (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has lower precedence than - (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has higher precedence than && (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has higher precedence than && (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has higher precedence than && (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has higher precedence than && (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has higher precedence than || (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has higher precedence than || (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- = has higher precedence than || (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- < has higher precedence than || (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than = (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than = (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence that < (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence that < (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than + (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than + (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than - (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than - (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than * (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than * (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than / (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unary - has higher precedence than / (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parentheses override precedence (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parentheses override precedence (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parentheses override associativity in expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parentheses disambiguate non-associativity (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parentheses disambiguate non-associativity (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- use of un-bracketed 'if' in arithmetic expression fails (to right)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- use of un-bracketed 'if' in arithmetic expression fails (to left)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- bracketed 'if' in arithmetic expression gives the right tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Kym's first precedence / associativity test[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Kym's second precedence / associativity test[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Kym's third precedence / associativity test[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Kym's fourth precedence / associativity test[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a dereference of an array[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a array length expression[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a double dereference[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- precedence of '!' higher than multiplicative operators[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- precedence of '!' higher than relational operators[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- precedence of '!' higher than logical operators[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parse a simple assignment expression[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parse simple array extension[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parse block of array extensions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that assignment is non-associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that append is non-associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that assignment and append are non-associative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parse simple for loop[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parse for loop with step[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parse for loop with loop and break in body[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an empty block expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a block containing one expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a block of ';' separated expressions produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a block of many ';' separated expressions produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a block containing a hanging ';' fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a 'let' declaration produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a 'let' declaration missing an initialisation expression fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a 'let' declaration missing an '=' fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a 'let' declaration missing a variable fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a 'let' with complex init expression produces the correct tree.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that the keywords 'let' and 'mut' cannot be run together[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- check that the keywords 'let' and 'mut' cannot be run together (2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a trivial 'if' expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an 'if' expression with a more complex condition produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an 'if' with missing else block fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an 'if' with missing 'else' fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an 'if' with missing then block fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing an 'if' with a missing conditions fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a parameter declaration of 'int' type produces the right tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a parameter with 'fn' type produces the right tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a parameter declaration with missing type fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a parameter declatation with missing ':' fails[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a 'fn' declaration produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing function declaration without return value produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function declaration with an empty parameter list produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function with empty parameter list and no return type produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing the 'unit' type produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing the 'int' type produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing the 'bool' type produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function type with no parameters produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function type with one parameter produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function type with three parameters produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function type with a parameter of function type produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function type with a return type which is a function type produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parsing a function type with parameters of function type[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- a program must have at least one expression[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- a program with one expression produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- a program with a few expressions produces the correct tree[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- programs with comments in them work[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- factorial program produces the correct tree (file src/test/resources/factorial.lin)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- miscellaneous test expressions produce the correct trees (file src/text/resources/tests.lin)[0m[0m

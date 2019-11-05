@@ -1,0 +1,18 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mNameAnalysisTests in extras/src/test/scala/lintilla:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- an undeclared top-level variable is unbound[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- an undeclared variable is unbound in 'print' expression[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- a top-level let binds its variable in subsequent expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- at top level rebinding a variable raises an error[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- an undeclared variable in a block is unbound[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- in the same block rebinding a variable raises an error[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- a let binds its variable in subsequent expressions in a block...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- ...but a binding doesn't escape the block it is bound in[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unbound variables raise errors on the right of 'let' expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 'let' expressions do not bind variables in their own right hand sides[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- variables may be rebound in inner blocks[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- variables bound at top-level are visible in blocks[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parameters cannot be rebound in function bodies[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- parameters cannot be shadowed by other parameters[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 'for' expressions bind their control variables in their bodies[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 'for' expressions open a new scope[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- control variable of a 'for' not bound in from, to and step expressions[0m[0m

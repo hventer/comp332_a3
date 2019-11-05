@@ -172,6 +172,24 @@ object Translator {
         // FIXME: add your translator code for logical operators, arrays and for loops here.
 
         // FIXME: Translate short-circuited evaluation of '&&', '||' and '~'.
+        case AndExp(l, r) =>
+          translateExp(l)
+          IBranch(
+            translateExp(r),
+            gen(IBool(false)))
+
+        case OrExp(l, r) =>
+          translateExp(l)
+          IBranch(
+            gen(IBool(false)),
+            translateExp(r))
+
+        case NotExp(e) =>
+          translateExp(e)
+          IBranch(
+            gen(IBool(false)),
+            gen(IBool(true)))
+
 
         // FIXME: Translate array creation, length, dereferencing, assignment and extension.
 
