@@ -497,6 +497,89 @@ class ExecTests extends SemanticTests {
   // FIXME: add your execution tests of logical operators, arrays and for loops here.
 
   // FIXME: Tests of short-circuited evaluation of '&&', '||' and '~'.
+  test("simple `and` expression gives right translation") {
+    targetTestInline("""
+      |print {true && false}""".stripMargin,
+      List(
+        IBool(true),
+        IBranch(
+          List(IBool(false)),
+          List(IBool(false))
+        ),
+        IPrint()
+      )
+    )
+  }
+  test("simple `and` expression evaluation (T && T)") {
+    execTestInline("""
+      |print {true && true}""".stripMargin, "true\n")
+  }
+  test("simple `and` expression evaluation (T && F)") {
+    execTestInline("""
+      |print {true && false}""".stripMargin, "false\n")
+  }
+  test("simple `and` expression evaluation (F && T)") {
+    execTestInline("""
+      |print {false && true}""".stripMargin, "false\n")
+  }
+  test("simple `and` expression evaluation (F && F)") {
+    execTestInline("""
+      |print {false && false}""".stripMargin, "false\n")
+  }
+
+  test("simple `or` expression gives right translation") {
+    targetTestInline(
+      """
+      |print {true || false}""".stripMargin,
+      List(
+        IBool(true),
+        IBranch(
+          List(IBool(true)),
+          List(IBool(false))
+        ),
+        IPrint()
+      )
+    )
+  }
+  test("simple `or` expression evaluation (T || T)") {
+    execTestInline("""
+      |print {true || true}""".stripMargin, "true\n")
+  }
+  test("simple `or` expression evaluation (T || F)") {
+    execTestInline("""
+      |print {true || false}""".stripMargin, "true\n")
+  }
+  test("simple `or` expression evaluation (F || T)") {
+    execTestInline("""
+      |print {false || true}""".stripMargin, "true\n")
+  }
+  test("simple `or` expression evaluation (F || F)") {
+    execTestInline("""
+      |print {false || false}""".stripMargin, "false\n")
+  }
+
+  test("simple `not` expression gives right translation") {
+    targetTestInline(
+      """
+      |print ~true""".stripMargin,
+      List(
+        IBool(true),
+        IBranch(
+          List(IBool(false)),
+          List(IBool(true))
+        ),
+        IPrint()
+      )
+    )
+  }
+  test("simple `not` expression evaluation (~T)") {
+    execTestInline("""
+      |print ~true""".stripMargin, "false\n")
+  }
+  test("simple `not` expression evaluation (~F)") {
+    execTestInline("""
+      |print ~false""".stripMargin, "true\n")
+  }
 
   // FIXME: Tests of execution of array operations
   test("create an empty array and print it translation") {

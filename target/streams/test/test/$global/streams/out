@@ -1,16 +1,16 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.TypeAnalysisTests, org.scalatest.tools.Framework$$anon$1@3bb24739, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.ExecTests, org.scalatest.tools.Framework$$anon$1@3bb24739, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.NameAnalysisTests, org.scalatest.tools.Framework$$anon$1@3bb24739, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.SemanticTests, org.scalatest.tools.Framework$$anon$1@3bb24739, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.SyntaxAnalysisTests, org.scalatest.tools.Framework$$anon$1@3bb24739, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.TypeAnalysisTests, org.scalatest.tools.Framework$$anon$1@3d735ac7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.ExecTests, org.scalatest.tools.Framework$$anon$1@3d735ac7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.NameAnalysisTests, org.scalatest.tools.Framework$$anon$1@3d735ac7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.SemanticTests, org.scalatest.tools.Framework$$anon$1@3d735ac7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(lintilla.SyntaxAnalysisTests, org.scalatest.tools.Framework$$anon$1@3d735ac7, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0mSummary for ScalaCheck not available.[0m
 [0m[[0m[0minfo[0m] [0m[0mScalaTest[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 995 milliseconds.[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 247[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 1 second, 52 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 260[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 5, aborted 0[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 247, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 260, failed 0, canceled 0, ignored 0, pending 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
-[0m[[0m[0minfo[0m] [0m[0mPassed: Total 247, Failed 0, Errors 0, Passed 247[0m
+[0m[[0m[0minfo[0m] [0m[0mPassed: Total 260, Failed 0, Errors 0, Passed 260[0m
 [0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	lintilla.TypeAnalysisTests[0m
 [0m[[0m[0mdebug[0m] [0m[0m	lintilla.ExecTests[0m

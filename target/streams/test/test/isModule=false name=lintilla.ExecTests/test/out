@@ -41,6 +41,19 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- call a parameterless function[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- call a three parameter function[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- curried function call[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `and` expression gives right translation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `and` expression evaluation (T && T)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `and` expression evaluation (T && F)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `and` expression evaluation (F && T)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `and` expression evaluation (F && F)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `or` expression gives right translation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `or` expression evaluation (T || T)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `or` expression evaluation (T || F)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `or` expression evaluation (F || T)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `or` expression evaluation (F || F)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `not` expression gives right translation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `not` expression evaluation (~T)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple `not` expression evaluation (~F)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- create an empty array and print it translation[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- create an empty array and print it excecution[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- add 1 to an empty array translation[0m[0m
