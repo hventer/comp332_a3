@@ -1,6 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 3/comp332_a3/src/test/scala/ExecTests.scala:581:13: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : List[Product with Serializable with lintilla.SECDTree.Instr][0m
-[0m[[0m[31merror[0m] [0m[0m required: String[0m
-[0m[[0m[31merror[0m] [0m[0m        List([0m
-[0m[[0m[31merror[0m] [0m[0m            ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m

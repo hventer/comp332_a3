@@ -1,6 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 3/comp332_a3/src/main/scala/Translator.scala:182:42: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : lintilla.SECDTree.IBool[0m
-[0m[[0m[31merror[0m] [0m[0m required: lintilla.LintillaTree.Expression[0m
-[0m[[0m[31merror[0m] [0m[0m              translateToFrame(List(IBool(false))))[0m
-[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m

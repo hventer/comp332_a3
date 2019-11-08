@@ -526,6 +526,14 @@ class ExecTests extends SemanticTests {
     execTestInline("""
       |print {false && false}""".stripMargin, "false\n")
   }
+  test("evaluation order test of `and` expression evaluation (T && F)") {
+    execTestInline("""
+      |print {{ print true; true } && { print false; false }}""".stripMargin, "true\nfalse\nfalse\n")
+  }
+  test("evaluation order test of `and` expression evaluation (F && T)") {
+    execTestInline("""
+      |print {{ print false; false } && { print true; true }}""".stripMargin, "false\nfalse\n")
+  }
 
   test("simple `or` expression gives right translation") {
     targetTestInline(
@@ -556,6 +564,14 @@ class ExecTests extends SemanticTests {
   test("simple `or` expression evaluation (F || F)") {
     execTestInline("""
       |print {false || false}""".stripMargin, "false\n")
+  }
+  test("evaluation order test of `or` expression evaluation (T || F)") {
+    execTestInline("""
+      |print {{ print true; true } || { print false; false }}""".stripMargin, "true\ntrue\n")
+  }
+  test("evaluation order test of `or` expression evaluation (F || T)") {
+    execTestInline("""
+      |print {{ print false; false } || { print true; true }}""".stripMargin, "false\ntrue\ntrue\n")
   }
 
   test("simple `not` expression gives right translation") {
@@ -633,48 +649,49 @@ class ExecTests extends SemanticTests {
     "array containing one entry\n"
     )  
   }
-    test("add 1 to an empty array and print it excecution") {
-      execTestInline("""
-        |let v = array int;
-        |v += 1;
-        |print v!0
-        |""".stripMargin,
-      "1\n"
-      )  
-    }
+  test("add 1 to an empty array and print it excecution") {
+    execTestInline("""
+      |let v = array int;
+      |v += 1;
+      |print v!0
+      |""".stripMargin,
+    "1\n"
+    )  
+  }
+  test("add 1 to an array, then change it to 2 translation") {
+    targetTestInline("""
+      |let v = array int;
+      |v += 1;
+      |print v!0;
+      |v!0 := 2;
+      |print v!0
+      |""".stripMargin,
+      List(
+        IArray(),
+        IClosure(
+          None,
+          List("v"),
+          List(
+            IVar("v"), IInt(1), IAppend(),
+            IVar("v"), IInt(0), IDeref(), IPrint(),
+            IVar("v"), IInt(0), IInt(2), IUpdate(),
+            IVar("v"), IInt(0), IDeref(), IPrint())
+        ),
+        ICall()
+      )
+    )
+  }
     test("add 1 to an array, then change it to 2 excecution") {
       execTestInline("""
         |let v = array int;
         |v += 1;
         |print v!0;
         |v!0 := 2;
-        |print v!0
-        |""".stripMargin,
-      "1\n2\n"
-      )  
-    }
-    test("add 1 to an array, then change it to 2 translation") {
-      targetTestInline("""
-        |let v = array int;
-        |v += 1;
         |print v!0;
-        |v!0 := 2;
-        |print v!0
+        |print length(v)
         |""".stripMargin,
-        List(
-          IArray(),
-          IClosure(
-            None,
-            List("v"),
-            List(
-              IVar("v"), IInt(1), IAppend(),
-              IVar("v"), IInt(0), IDeref(), IPrint(),
-              IVar("v"), IInt(0), IInt(2), IUpdate(),
-              IVar("v"), IInt(0), IDeref(), IPrint())
-          ),
-          ICall()
-        )
-      )
+      "1\n2\n1\n"
+      )  
     }
 
   test("array example") {
@@ -684,10 +701,14 @@ class ExecTests extends SemanticTests {
 
   // FIXME: Tests of execution of 'for' loops, 'break' and 'loop' constructs.
 
+  test("for_array translate example") {
+    targetTestFile("src/test/resources/for_array.lin", List())
+  }
+  
+  test("for_array excecute example") {
+    execTestFile("src/test/resources/for_array.lin", "0\n5\n10\n15\n20\n1\n6\n11\n16\n21\n2\n7\n12\n17\n22\n3\n8\n13\n18\n23\n4\n9\n14\n19\n24\n300\n")
+  }
 
-  // test("for_array example") {
-  //   execTestFile("src/test/resources/for_array.lin", "0\n5\n10\n15\n20\n1\n6\n11\n16\n21\n2\n7\n12\n17\n22\n3\n8\n13\n18\n23\n4\n9\n14\n19\n24\n300\n")
-  // }
 
   // Bigger examples.
 

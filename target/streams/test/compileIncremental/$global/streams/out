@@ -1,8 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mThe lintilla.Translator$ has the following regular definitions changed:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	UsedName(step_value,[Default]), UsedName(control_var,[Default]).[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll member reference dependencies will be considered within this context.[0m
-[0m[[0m[0mdebug[0m] [0m[0mFiles invalidated by inheriting from (external) lintilla.Translator$: Set(); now invalidating by inheritance (internally).[0m
-[0m[[0m[0mdebug[0m] [0m[0mGetting direct dependencies of all classes transitively invalidated by inheritance.[0m
-[0m[[0m[0mdebug[0m] [0m[0mGetting classes that directly depend on (external) lintilla.Translator$.[0m
-[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of lintilla.SemanticTests. This dependency is not being considered for invalidation.[0m
-[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m

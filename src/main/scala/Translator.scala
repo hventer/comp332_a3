@@ -221,20 +221,20 @@ object Translator {
           gen(ILength())          
 
 
-          /*
+        
         // FIXME: Translate 'for' loops, 'loop' and 'break' constructs.
-        case ForExp(IdnDef(id), from, to, step, Block(stmts)) =>
+        case ForExp(IdnDef(id), from, to, step, body) =>
           // Save original values of control_var and step_value in local variables
           val old_control_var = control_var
           val old_step_value = step_value
           // Update control_var and step_value for the loop we are currently translating
           control_var = id
           //step_value = step
+          step_value = step_value + 1
 
-          // .... Code to translate this for expression
           translateExp(from)
           translateExp(to)
-          IClosure(
+          gen(IClosure(
             None,
             List("_from", "_to", "_break_cont"),
             List(
@@ -252,61 +252,23 @@ object Translator {
                 List(control_var, "_loop_cont"),
                 List(
                   //<SECD code to test for loop termination (see below)>,
+                  IInt(step_value),
+                  IInt(0),
+                  ILess(),
+                  IBranch(
+                    List(IVar(control_var), IVar("_to"), ILess()),
+                    List(IVar("_to"), IVar(control_var), ILess())
+                  ),
                   IBranch(
                     List(
                       IVar("_break_cont"),
                       IResume()
                     ),
                     List()
-                  ),
-                  translateToFrame(stmts) ++
-                  IVar("control_var") ++
-                  IInt("step_value") ++
-                  IAdd() ++
-                  IVar("_loop_cont") ++
-                  IVar("_loop_cont") ++
-                  IResume()
-                )
-              ) ++
-              ICall()
-            )
-          )
-          ICallCC()
-
-          // Restore the values that control_var and step_value had on entry
-          control_var = old_control_var
-          step_value = old_step_value
-        */
-
-        /*
-          translateExp(from)
-          translateExp(to)
-          IClosure(
-            None,
-            List("_from", "_to", "_break_cont"),
-            List(
-              IClosure(
-                None,
-                List("_loop_cont"),
+                  )
+                ) ++
+                translateToFrame(body.stmts) ++
                 List(
-                  IVar("_from"),
-                  Ivar("_loop_cont")
-                )
-              ),
-              ICallCC(),
-              IClosure(
-                None,
-                List(control_var, "_loop_cont"),
-                List(
-                  <SECD code to test for loop termination (see below)>,
-                  IBranch(
-                    List(
-                      IVar("_break_cont"),
-                      IResume()
-                    ),
-                    List()
-                  ),
-                  <SECD code translation of body>,
                   IVar(control_var),
                   IInt(step_value),
                   IAdd(),
@@ -317,10 +279,11 @@ object Translator {
               ),
               ICall()
             )
-          ),
-          ICallCC()
-          */
-        
+          ))
+          gen(ICallCC())
+          // Restore the values that control_var and step_value had on entry
+          control_var = old_control_var
+          step_value = old_step_value
 
         case LoopExp() => 
           gen(IDropAll())
