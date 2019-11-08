@@ -499,8 +499,112 @@ class ExecTests extends SemanticTests {
   // FIXME: Tests of short-circuited evaluation of '&&', '||' and '~'.
 
   // FIXME: Tests of execution of array operations
+  test("create an empty array and print it translation") {
+    targetTestInline("""
+      |let v = array int;
+      |print v
+      |""".stripMargin,
+      List(
+        IArray(),
+        IClosure(
+          None,
+          List("v"),
+          List(IVar("v"), IPrint())
+        ),
+        ICall()
+      )
+    )
+  }
+  test("create an empty array and print it excecution") {
+    execTestInline("""
+      |let v = array int;
+      |print v
+      |""".stripMargin,
+    "empty array\n"
+    )  
+  }
+
+  test("add 1 to an empty array translation") {
+    targetTestInline("""
+      |let v = array int;
+      |v += 1;
+      |print v
+      |""".stripMargin,
+      List(
+        IArray(),
+        IClosure(
+          None,
+          List("v"),
+          List(IVar("v"), IInt(1), IAppend(), IVar("v"), IPrint())
+        ),
+        ICall()
+      )
+    )
+  }
+  test("add 1 to an empty array excecution") {
+    execTestInline("""
+      |let v = array int;
+      |v += 1;
+      |print v
+      |""".stripMargin,
+    "array containing one entry\n"
+    )  
+  }
+    test("add 1 to an empty array and print it excecution") {
+      execTestInline("""
+        |let v = array int;
+        |v += 1;
+        |print v!0
+        |""".stripMargin,
+      "1\n"
+      )  
+    }
+    test("add 1 to an array, then change it to 2 excecution") {
+      execTestInline("""
+        |let v = array int;
+        |v += 1;
+        |print v!0;
+        |v!0 := 2;
+        |print v!0
+        |""".stripMargin,
+      "1\n2\n"
+      )  
+    }
+    test("add 1 to an array, then change it to 2 translation") {
+      targetTestInline("""
+        |let v = array int;
+        |v += 1;
+        |print v!0;
+        |v!0 := 2;
+        |print v!0
+        |""".stripMargin,
+        List(
+          IArray(),
+          IClosure(
+            None,
+            List("v"),
+            List(
+              IVar("v"), IInt(1), IAppend(),
+              IVar("v"), IInt(0), IDeref(), IPrint(),
+              IVar("v"), IInt(0), IInt(2), IUpdate(),
+              IVar("v"), IInt(0), IDeref(), IPrint())
+          ),
+          ICall()
+        )
+      )
+    }
+
+  test("array example") {
+        execTestFile("src/test/resources/array.lin", "1\n2\n3\n4\n5\n2\n3\n4\n5\n6\n7\n6\n")
+      }    
+  
 
   // FIXME: Tests of execution of 'for' loops, 'break' and 'loop' constructs.
+
+
+  // test("for_array example") {
+  //   execTestFile("src/test/resources/for_array.lin", "0\n5\n10\n15\n20\n1\n6\n11\n16\n21\n2\n7\n12\n17\n22\n3\n8\n13\n18\n23\n4\n9\n14\n19\n24\n300\n")
+  // }
 
   // Bigger examples.
 

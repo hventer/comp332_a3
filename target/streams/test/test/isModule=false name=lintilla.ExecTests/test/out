@@ -41,6 +41,14 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- call a parameterless function[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- call a three parameter function[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- curried function call[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- create an empty array and print it translation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- create an empty array and print it excecution[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- add 1 to an empty array translation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- add 1 to an empty array excecution[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- add 1 to an empty array and print it excecution[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- add 1 to an array, then change it to 2 excecution[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- add 1 to an array, then change it to 2 translation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- array example[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- factorial example[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- fibonacci example[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- higher order example[0m[0m

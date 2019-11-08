@@ -28,6 +28,9 @@ object Translator {
 
   implicit private def vecToList[T](vec : Vector[T]) = vec.toList
 
+  var control_var: String = ""
+  var step_value: Int = 0
+
   /**
     * Return a frame that represents the SEC instructions for a Lintilla
     * program.
@@ -172,28 +175,166 @@ object Translator {
         // FIXME: add your translator code for logical operators, arrays and for loops here.
 
         // FIXME: Translate short-circuited evaluation of '&&', '||' and '~'.
+        /*
         case AndExp(l, r) =>
           translateExp(l)
-          IBranch(
-            translateExp(r),
-            gen(IBool(false)))
+            IBranch(
+              translateToFrame(List(r)),
+              gen(IBool(false)))
 
         case OrExp(l, r) =>
           translateExp(l)
           IBranch(
             gen(IBool(false)),
-            translateExp(r))
+            translateToFrame(List(r)))
 
         case NotExp(e) =>
           translateExp(e)
           IBranch(
             gen(IBool(false)),
             gen(IBool(true)))
+          */
 
 
         // FIXME: Translate array creation, length, dereferencing, assignment and extension.
+        case ArrayExp(t) =>
+          gen(IArray())
 
+        case DerefExp(v, i) => 
+          translateExp(v)
+          translateExp(i)
+          gen(IDeref())
+
+        case AssignExp(DerefExp(v, i), e) =>
+          translateExp(v)
+          translateExp(i)
+          translateExp(e)
+          gen(IUpdate())
+
+        case AppendExp(v, e) =>
+          translateExp(v)
+          translateExp(e)
+          gen(IAppend())
+
+        case LengthExp(v) => 
+          translateExp(v)
+          gen(ILength())          
+
+
+          /*
         // FIXME: Translate 'for' loops, 'loop' and 'break' constructs.
+        case ForExp(IdnDef(id), from, to, step, Block(stmts)) =>
+          // Save original values of control_var and step_value in local variables
+          val old_control_var = control_var
+          val old_step_value = step_value
+          // Update control_var and step_value for the loop we are currently translating
+          control_var = id
+          //step_value = step
+
+          // .... Code to translate this for expression
+          translateExp(from)
+          translateExp(to)
+          IClosure(
+            None,
+            List("_from", "_to", "_break_cont"),
+            List(
+              IClosure(
+                None,
+                List("_loop_cont"),
+                List(
+                  IVar("_from"),
+                  IVar("_loop_cont")
+                )
+              ),
+              ICallCC(),
+              IClosure(
+                None,
+                List(control_var, "_loop_cont"),
+                List(
+                  //<SECD code to test for loop termination (see below)>,
+                  IBranch(
+                    List(
+                      IVar("_break_cont"),
+                      IResume()
+                    ),
+                    List()
+                  ),
+                  translateToFrame(stmts) ++
+                  IVar("control_var") ++
+                  IInt("step_value") ++
+                  IAdd() ++
+                  IVar("_loop_cont") ++
+                  IVar("_loop_cont") ++
+                  IResume()
+                )
+              ) ++
+              ICall()
+            )
+          )
+          ICallCC()
+
+          // Restore the values that control_var and step_value had on entry
+          control_var = old_control_var
+          step_value = old_step_value
+        */
+
+        /*
+          translateExp(from)
+          translateExp(to)
+          IClosure(
+            None,
+            List("_from", "_to", "_break_cont"),
+            List(
+              IClosure(
+                None,
+                List("_loop_cont"),
+                List(
+                  IVar("_from"),
+                  Ivar("_loop_cont")
+                )
+              ),
+              ICallCC(),
+              IClosure(
+                None,
+                List(control_var, "_loop_cont"),
+                List(
+                  <SECD code to test for loop termination (see below)>,
+                  IBranch(
+                    List(
+                      IVar("_break_cont"),
+                      IResume()
+                    ),
+                    List()
+                  ),
+                  <SECD code translation of body>,
+                  IVar(control_var),
+                  IInt(step_value),
+                  IAdd(),
+                  IVar("_loop_cont"),
+                  IVar("_loop_cont"),
+                  IResume()
+                )
+              ),
+              ICall()
+            )
+          ),
+          ICallCC()
+          */
+        
+
+        case LoopExp() => 
+          gen(IDropAll())
+          gen(IVar(control_var))
+          gen(IInt(step_value))
+          gen(IAdd())
+          gen(IVar("_loop_cont"))
+          gen(IVar("_loop_cont"))
+          gen(IResume())
+
+        case BreakExp() => 
+          gen(IDropAll())
+          gen(IVar("_break_cont"))
+          gen(IResume())
 
         // Other cases have already been handled elsewhere
 
